@@ -1005,21 +1005,21 @@ export const Profile = (): JSX.Element => {
         {/* User Info Card */}
         <Card className="mb-6 sm:mb-8 -mt-14 sm:-mt-18 mx-4 sm:mx-8 relative z-10">
           <CardContent className="pt-20 sm:pt-24 pb-4 sm:pb-6 px-4 sm:px-6">
-            <div className={`flex flex-col sm:flex-row sm:items-center gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               <div className="flex-1">
-                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 text-right">Adam Ahmed</h1>
-                <p className={`text-sm sm:text-base text-gray-600 mb-4 ${isRTL ? 'text-right' : 'text-left'}`}>{t.profile.food_enthusiast}</p>
-                <div className={`flex items-center gap-4 text-sm text-gray-500 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 text-left">Adam Ahmed</h1>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 text-left">{t.profile.food_enthusiast}</p>
+                <div className="flex items-center gap-4 text-sm text-gray-500">
                   <span>{t.profile.member_since} {language === 'ar' ? 'يناير 2023' : 'January 2023'}</span>
                   <span>•</span>
                   <Badge className="bg-[#22ae4b] text-white">{t.profile.premium}</Badge>
                   <Badge className="bg-blue-500 text-white">{t.profile.verified}</Badge>
                 </div>
               </div>
-              <div className={`flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
                 <Link to={getLocalizedPath("/account-settings")}>
                   <Button variant="outline" className="w-full sm:w-auto px-4 sm:px-6 text-sm">
-                    <Settings className={`w-4 h-4 ${isRTL ? 'ml-2 mr-0' : 'mr-2'}`} />
+                    <Settings className="w-4 h-4 mr-2" />
                     {t.profile.account_settings}
                   </Button>
                 </Link>
@@ -1027,7 +1027,7 @@ export const Profile = (): JSX.Element => {
                   onClick={() => setShowGoalsModal(true)}
                   className="w-full sm:w-auto bg-[#22ae4b] hover:bg-[#1c9a40] text-white px-4 sm:px-6 text-sm"
                 >
-                  <Target className={`w-4 h-4 ${isRTL ? 'ml-2 mr-0' : 'mr-2'}`} />
+                  <Target className="w-4 h-4 mr-2" />
                   {language === 'ar' ? 'إدارة الأهداف' : 'Manage Goals'}
                 </Button>
               </div>
