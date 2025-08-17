@@ -998,16 +998,16 @@ export const Profile = (): JSX.Element => {
             </div>
 
             {/* Action Buttons */}
-            <div className={`absolute top-4 ${isRTL ? 'left-4' : 'right-4'} flex gap-2`}>
+            <div className={`absolute top-4 ${isRTL ? 'right-4' : 'right-4'} flex gap-2`}>
               <Link to={getLocalizedPath("/goals")}>
                 <Button className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-white/30 px-3 py-2 h-10 shadow-lg">
-                  <Target className="w-4 h-4 mr-2" />
+                  <Target className={`w-4 h-4 ${isRTL ? 'ml-2 mr-0' : 'mr-2'}`} />
                   <span className="hidden sm:inline">{language === 'ar' ? 'إدارة الأهداف' : 'Manage Goals'}</span>
                 </Button>
               </Link>
               <Link to={getLocalizedPath("/edit-profile")}>
                 <Button variant="outline" className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-900 border-white px-3 py-2 h-10 shadow-lg">
-                  <Edit3 className="w-4 h-4 mr-2" />
+                  <Edit3 className={`w-4 h-4 ${isRTL ? 'ml-2 mr-0' : 'mr-2'}`} />
                   <span className="hidden sm:inline">{t.profile.edit}</span>
                 </Button>
               </Link>
@@ -1020,7 +1020,7 @@ export const Profile = (): JSX.Element => {
           <CardContent className="p-6 sm:p-8">
             <div className={`flex flex-col sm:flex-row sm:items-center gap-6 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <div className="flex-1">
-                <div className="flex items-center gap-3 mb-4">
+                <div className={`flex items-center gap-3 mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <h1 className={`text-3xl sm:text-4xl font-bold text-gray-900 ${isRTL ? 'text-right' : 'text-left'}`}>Adam Ahmed</h1>
                   <Badge className="bg-[#22ae4b] text-white px-3 py-1 text-sm font-medium">
                     {t.profile.premium}
@@ -1031,21 +1031,21 @@ export const Profile = (): JSX.Element => {
                 </div>
                 <p className={`text-base sm:text-lg text-gray-600 mb-6 ${isRTL ? 'text-right' : 'text-left'}`}>{t.profile.food_enthusiast}</p>
                 <div className={`flex flex-wrap items-center gap-4 text-sm text-gray-500 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <div className="flex items-center gap-2">
+                  <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <Calendar className="w-4 h-4 text-[#22ae4b]" />
                     <span>{t.profile.member_since} {language === 'ar' ? 'يناير 2023' : 'January 2023'}</span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <MapPin className="w-4 h-4 text-[#22ae4b]" />
                     <span>{language === 'ar' ? 'نيويورك، الولايات المتحدة' : 'New York, USA'}</span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <Globe className="w-4 h-4 text-[#22ae4b]" />
                     <span>adamahmed.com</span>
                   </div>
                 </div>
               </div>
-              <div className={`flex flex-col gap-3 ${isRTL ? 'sm:ml-auto' : 'sm:mr-auto'}`}>
+              <div className={`flex flex-col gap-3 ${isRTL ? 'sm:mr-auto' : 'sm:mr-auto'}`}>
                 <Link to={getLocalizedPath("/account-settings")}>
                   <Button variant="outline" className="w-full sm:w-auto px-6 py-3 text-sm font-medium shadow-sm hover:shadow-md transition-shadow">
                     <Settings className={`w-4 h-4 ${isRTL ? 'ml-2 mr-0' : 'mr-2'}`} />
