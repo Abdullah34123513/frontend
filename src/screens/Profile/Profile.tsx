@@ -968,14 +968,14 @@ export const Profile = (): JSX.Element => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
         {/* Cover Image and Profile Header */}
-        <div className="relative h-40 sm:h-48 md:h-64 bg-gradient-to-r from-[#22ae4b] to-[#1c9a40] rounded-xl sm:rounded-2xl overflow-hidden mb-6 sm:mb-8">
+        <div className="relative h-40 sm:h-48 md:h-64 bg-gradient-to-r from-[#22ae4b] to-[#1c9a40] rounded-xl sm:rounded-2xl mb-6 sm:mb-8">
           <img 
             src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800&h=300&fit=crop" 
             alt="Cover" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-xl sm:rounded-2xl"
           />
-          <div className="absolute inset-0 bg-black/30" />
-          <div className="absolute -bottom-12 sm:-bottom-16 left-4 sm:left-8">
+          <div className="absolute inset-0 bg-black/30 rounded-xl sm:rounded-2xl" />
+          <div className="absolute -bottom-16 sm:-bottom-20 left-4 sm:left-8 z-20">
             <Avatar className="w-24 h-24 sm:w-32 sm:h-32 border-4 border-white shadow-lg">
               <img
                 src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop"
@@ -1003,8 +1003,8 @@ export const Profile = (): JSX.Element => {
         </div>
 
         {/* User Info Card */}
-        <Card className="mb-6 sm:mb-8 -mt-12 sm:-mt-16 mx-4 sm:mx-8 relative z-10">
-          <CardContent className="pt-16 sm:pt-20 pb-4 sm:pb-6 px-4 sm:px-6">
+        <Card className="mb-6 sm:mb-8 -mt-14 sm:-mt-18 mx-4 sm:mx-8 relative z-10">
+          <CardContent className="pt-20 sm:pt-24 pb-4 sm:pb-6 px-4 sm:px-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="flex-1">
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Adam Ahmed</h1>
