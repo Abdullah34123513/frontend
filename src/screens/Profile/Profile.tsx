@@ -39,7 +39,9 @@ import {
   Trophy,
   AlertCircle,
   Info,
-  Flame
+  Flame,
+  MapPin,
+  Globe
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -968,64 +970,91 @@ export const Profile = (): JSX.Element => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
         {/* Cover Image and Profile Header */}
-        <div className="relative h-40 sm:h-48 md:h-64 bg-gradient-to-r from-[#22ae4b] to-[#1c9a40] rounded-xl sm:rounded-2xl mb-6 sm:mb-8">
-          <img 
-            src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800&h=300&fit=crop" 
-            alt="Cover" 
-            className="w-full h-full object-cover rounded-xl sm:rounded-2xl"
-          />
-          <div className="absolute inset-0 bg-black/30 rounded-xl sm:rounded-2xl" />
-          <div className={`absolute -bottom-16 sm:-bottom-20 ${isRTL ? 'left-4 sm:left-8' : 'right-4 sm:right-8'} z-20`}>
-            <Avatar className="w-24 h-24 sm:w-32 sm:h-32 border-4 border-white shadow-lg">
-              <img
-                src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop"
-                alt="Adam Ahmed"
-                className="w-full h-full object-cover"
-              />
-            </Avatar>
-          </div>
-          <div className="absolute top-3 sm:top-6 right-3 sm:right-6 flex gap-2 sm:gap-3">
-            <Link to={getLocalizedPath("/goals")}>
-              <Button className="bg-white/20 hover:bg-white/30 text-white border-white/30 text-xs sm:text-sm px-2 sm:px-4 py-1 sm:py-2 h-8 sm:h-10">
-                <Target className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                <span className="hidden sm:inline">{language === 'ar' ? 'إدارة الأهداف' : 'Manage Goals'}</span>
-                <span className="sm:hidden">{language === 'ar' ? 'أهداف' : 'Goals'}</span>
-              </Button>
-            </Link>
-            <Link to={getLocalizedPath("/edit-profile")}>
-              <Button variant="outline" className="bg-white/90 hover:bg-white text-gray-900 border-white text-xs sm:text-sm px-2 sm:px-4 py-1 sm:py-2 h-8 sm:h-10">
-                <Edit3 className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                <span className="hidden sm:inline">{t.profile.edit}</span>
-                <span className="sm:hidden">{language === 'ar' ? 'تعديل' : 'Edit'}</span>
-              </Button>
-            </Link>
+        <div className="relative bg-gradient-to-br from-[#22ae4b] via-[#1c9a40] to-[#16a085] rounded-3xl overflow-hidden mb-8 shadow-2xl">
+          {/* Cover Image with Overlay */}
+          <div className="relative h-48 sm:h-56 md:h-64">
+            <img 
+              src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop" 
+              alt="Cover" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+            
+            {/* Profile Picture */}
+            <div className={`absolute bottom-0 ${isRTL ? 'right-6 sm:right-8' : 'left-6 sm:left-8'} transform translate-y-1/2 z-30`}>
+              <div className="relative">
+                <Avatar className="w-28 h-28 sm:w-36 sm:h-36 border-4 border-white shadow-2xl ring-4 ring-[#22ae4b]/20">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
+                    alt="Adam Ahmed"
+                    className="w-full h-full object-cover"
+                  />
+                </Avatar>
+                {/* Verification Badge */}
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className={`absolute top-4 ${isRTL ? 'left-4' : 'right-4'} flex gap-2`}>
+              <Link to={getLocalizedPath("/goals")}>
+                <Button className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-white/30 px-3 py-2 h-10 shadow-lg">
+                  <Target className="w-4 h-4 mr-2" />
+                  <span className="hidden sm:inline">{language === 'ar' ? 'إدارة الأهداف' : 'Manage Goals'}</span>
+                </Button>
+              </Link>
+              <Link to={getLocalizedPath("/edit-profile")}>
+                <Button variant="outline" className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-900 border-white px-3 py-2 h-10 shadow-lg">
+                  <Edit3 className="w-4 h-4 mr-2" />
+                  <span className="hidden sm:inline">{t.profile.edit}</span>
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* User Info Card */}
-        <Card className="mb-6 sm:mb-8 -mt-14 sm:-mt-18 mx-4 sm:mx-8 relative z-10">
-          <CardContent className="pt-20 sm:pt-24 pb-4 sm:pb-6 px-4 sm:px-6">
-            <div className={`flex flex-col sm:flex-row sm:items-center gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
-              <div className="flex-1 bg-white rounded-lg p-4 sm:p-6 shadow-sm">
-                <h1 className={`text-2xl sm:text-3xl font-bold text-gray-900 mb-2 ${isRTL ? 'text-right' : 'text-left'}`}>Adam Ahmed</h1>
-                <p className={`text-sm sm:text-base text-gray-600 mb-4 ${isRTL ? 'text-right' : 'text-left'}`}>{t.profile.food_enthusiast}</p>
-                <div className={`flex items-center gap-4 text-sm text-gray-500 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <span>{t.profile.member_since} {language === 'ar' ? 'يناير 2023' : 'January 2023'}</span>
-                  <span>•</span>
-                  <Badge className="bg-[#22ae4b] text-white">{t.profile.premium}</Badge>
-                  <Badge className="bg-blue-500 text-white">{t.profile.verified}</Badge>
+        <Card className="mb-8 mt-16 sm:mt-20 bg-white/95 backdrop-blur-sm shadow-xl border-0">
+          <CardContent className="p-6 sm:p-8">
+            <div className={`flex flex-col sm:flex-row sm:items-center gap-6 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <h1 className={`text-3xl sm:text-4xl font-bold text-gray-900 ${isRTL ? 'text-right' : 'text-left'}`}>Adam Ahmed</h1>
+                  <Badge className="bg-[#22ae4b] text-white px-3 py-1 text-sm font-medium">
+                    {t.profile.premium}
+                  </Badge>
+                  <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                    <Check className="w-3 h-3 text-white" />
+                  </div>
+                </div>
+                <p className={`text-base sm:text-lg text-gray-600 mb-6 ${isRTL ? 'text-right' : 'text-left'}`}>{t.profile.food_enthusiast}</p>
+                <div className={`flex flex-wrap items-center gap-4 text-sm text-gray-500 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-[#22ae4b]" />
+                    <span>{t.profile.member_since} {language === 'ar' ? 'يناير 2023' : 'January 2023'}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-[#22ae4b]" />
+                    <span>{language === 'ar' ? 'نيويورك، الولايات المتحدة' : 'New York, USA'}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Globe className="w-4 h-4 text-[#22ae4b]" />
+                    <span>adamahmed.com</span>
+                  </div>
                 </div>
               </div>
-              <div className={`flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
+              <div className={`flex flex-col gap-3 ${isRTL ? 'sm:ml-auto' : 'sm:mr-auto'}`}>
                 <Link to={getLocalizedPath("/account-settings")}>
-                  <Button variant="outline" className="w-full sm:w-auto px-4 sm:px-6 text-sm">
+                  <Button variant="outline" className="w-full sm:w-auto px-6 py-3 text-sm font-medium shadow-sm hover:shadow-md transition-shadow">
                     <Settings className={`w-4 h-4 ${isRTL ? 'ml-2 mr-0' : 'mr-2'}`} />
                     {t.profile.account_settings}
                   </Button>
                 </Link>
                 <Button 
                   onClick={() => setShowGoalsModal(true)}
-                  className="w-full sm:w-auto bg-[#22ae4b] hover:bg-[#1c9a40] text-white px-4 sm:px-6 text-sm"
+                  className="w-full sm:w-auto bg-[#22ae4b] hover:bg-[#1c9a40] text-white px-6 py-3 text-sm font-medium shadow-sm hover:shadow-md transition-shadow"
                 >
                   <Target className={`w-4 h-4 ${isRTL ? 'ml-2 mr-0' : 'mr-2'}`} />
                   {language === 'ar' ? 'إدارة الأهداف' : 'Manage Goals'}
