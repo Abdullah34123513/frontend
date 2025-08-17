@@ -980,8 +980,8 @@ export const Profile = (): JSX.Element => {
             />
             <div className="absolute inset-0 bg-black/40" />
             
-            {/* Profile Picture - Centered and properly sized */}
-            <div className="absolute inset-0 flex items-center justify-center">
+            {/* Profile Picture - RTL positioned */}
+            <div className={`absolute inset-y-0 ${isRTL ? 'right-6 sm:right-8' : 'left-6 sm:left-8'} flex items-center`}>
               <div className="relative">
                 <Avatar className="w-32 h-32 sm:w-40 sm:h-40 border-4 border-white shadow-2xl">
                   <img
