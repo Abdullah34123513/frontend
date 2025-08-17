@@ -1019,7 +1019,7 @@ export const Profile = (): JSX.Element => {
         <Card className="mb-8 bg-white shadow-lg border-0">
           <CardContent className="p-6 sm:p-8">
             <div className={`flex flex-col sm:flex-row sm:items-center gap-6 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
-              <div className="flex-1">
+              <div className={`flex-1 ${isRTL ? 'order-2' : ''}`}>
                 <div className={`flex items-center gap-3 mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <h1 className={`text-3xl sm:text-4xl font-bold text-gray-900 ${isRTL ? 'text-right' : 'text-left'}`}>Adam Ahmed</h1>
                   <Badge className="bg-[#22ae4b] text-white px-3 py-1 text-sm font-medium">
