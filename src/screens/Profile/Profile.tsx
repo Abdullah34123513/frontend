@@ -1007,7 +1007,7 @@ export const Profile = (): JSX.Element => {
           <CardContent className="pt-20 sm:pt-24 pb-4 sm:pb-6 px-4 sm:px-6">
             <div className={`flex flex-col sm:flex-row sm:items-center gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <div className="flex-1">
-                <h1 className={`text-2xl sm:text-3xl font-bold text-gray-900 mb-2 ${isRTL ? 'text-right' : 'text-left'}`}>Adam Ahmed</h1>
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 text-right">Adam Ahmed</h1>
                 <p className={`text-sm sm:text-base text-gray-600 mb-4 ${isRTL ? 'text-right' : 'text-left'}`}>{t.profile.food_enthusiast}</p>
                 <div className={`flex items-center gap-4 text-sm text-gray-500 ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <span>{t.profile.member_since} {language === 'ar' ? 'يناير 2023' : 'January 2023'}</span>
