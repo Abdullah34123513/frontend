@@ -970,20 +970,20 @@ export const Profile = (): JSX.Element => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
         {/* Cover Image and Profile Header */}
-        <div className="relative bg-gradient-to-br from-[#22ae4b] via-[#1c9a40] to-[#16a085] rounded-3xl overflow-hidden mb-8 shadow-2xl">
-          {/* Cover Image with Overlay */}
-          <div className="relative h-48 sm:h-56 md:h-64">
+        <div className="relative bg-gradient-to-r from-[#22ae4b] to-[#1c9a40] rounded-2xl overflow-hidden mb-8 shadow-lg">
+          {/* Cover Image */}
+          <div className="relative h-48 sm:h-56">
             <img 
               src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop" 
               alt="Cover" 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-black/40" />
             
-            {/* Profile Picture */}
-            <div className={`absolute bottom-0 ${isRTL ? 'right-6 sm:right-8' : 'left-6 sm:left-8'} transform translate-y-1/2 z-30`}>
+            {/* Profile Picture - Centered and properly sized */}
+            <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative">
-                <Avatar className="w-28 h-28 sm:w-36 sm:h-36 border-4 border-white shadow-2xl ring-4 ring-[#22ae4b]/20">
+                <Avatar className="w-32 h-32 sm:w-40 sm:h-40 border-4 border-white shadow-2xl">
                   <img
                     src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
                     alt="Adam Ahmed"
@@ -1016,7 +1016,7 @@ export const Profile = (): JSX.Element => {
         </div>
 
         {/* User Info Card */}
-        <Card className="mb-8 mt-16 sm:mt-20 bg-white/95 backdrop-blur-sm shadow-xl border-0">
+        <Card className="mb-8 bg-white shadow-lg border-0">
           <CardContent className="p-6 sm:p-8">
             <div className={`flex flex-col sm:flex-row sm:items-center gap-6 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <div className="flex-1">
